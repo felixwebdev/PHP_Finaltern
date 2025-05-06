@@ -56,4 +56,6 @@
     $myInit = new M_init();
     $myInit->Create_Structure();
     $myInit->Insert_Data();
+
+    echo "Cơ sở dữ liệu đã được tạo thành công!";
 ?>
