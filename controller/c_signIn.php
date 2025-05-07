@@ -8,4 +8,5 @@
     //Chúng ta sẽ có 2 loại tài khoản là LevelID 1 sẽ là Admin, và LevelID 0 là người dùng
     //Lúc user đăng nhập, hãy check cả LevelID nếu bằng 0 thì cứ chuyển qua trang bình thường
     //Nếu LevelID = 1 hãy chuyển qua trang của Admin
+
 ?>
