@@ -1,4 +1,3 @@
-<footer class="bg-light text-center py-3">
 <div id="footer" class="container-fluid mt-5">
       <div class="row">
       <div class="col-1"></div>
@@ -100,7 +99,7 @@
         <div class="col-1 d-none d-md-block"></div>
         </div>
       </div>
-</footer>
+
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

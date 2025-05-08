@@ -39,7 +39,18 @@
     position: relative;
 }
 
+.main__container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
 @media only screen and (max-width: 62em) {
+    .main__container {
+        width: 100%;
+    }
+
     .navbar-collapse {
         width: 200px;
         position: absolute;
@@ -191,6 +202,8 @@
 #footer {
     background-color: var(--main-color);
     height: 200px;
+    position: relative;
+    bottom: 0;
 }
 
 #footer .col-4, #footer .col-6 {
@@ -215,5 +228,5 @@
     padding: 10px 5px;
 }
 
-
+/* ----------------Slider----------------- */
 
