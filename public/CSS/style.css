@@ -46,13 +46,7 @@ main{
         left: calc(var(--width) * -1);
     }
 }
-.slider:hover .item{
-    animation-play-state: paused!important;
-    filter: grayscale(1);
-}
-.slider .item:hover{
-    filter: grayscale(0);
-}
+
 .slider[reverse="true"] .item{
     animation: reversePlay 10s linear infinite;
 }
@@ -65,3 +59,67 @@ main{
 }
 
 /* ------------------end Slider--------------------- */
+
+.About-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+h3 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #ff6600;
+    margin-bottom: 20px;
+}
+
+.about-img {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-img img {
+    max-width: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-info {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-info h1, .about-info h2 {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.about-info h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.about-info h2 {
+    font-size: 22px;
+    font-weight: normal;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.about-info b {
+    font-weight: bold;
+    color: #666;
+}
+
+.about-info ul {
+    margin-left: 20px;
+}
+
+.about-info ul li {
+    margin: 5px 0;
+    font-size: 18px;
+}
