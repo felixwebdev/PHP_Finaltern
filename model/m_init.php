@@ -24,17 +24,19 @@
                 GiaTien float Not Null,
                 MoTa varchar(100) Not Null,
                 ImageSP varchar(100) Not Null,
+                Sold int Not Null Default 0,
                 MaTK int(6) Zerofill,
                 Constraint P_MaTK_FK Foreign Key (MaTK) References Account(MaTK) On Delete Cascade
             )";
             $this->setQuery($sql_product);
             $this->excuteQuery();
 
-            $sql_LSMua = "Create Table If Not Exists LS_Mua (
+            $sql_LSMua = "Create Table If Not Exists Cart (
                 MaTK int(6) Zerofill Unsigned Not Null,
                 MaSP varchar(6) Not Null,
                 SoLuong int Not Null,
                 GiaTien float Not Null,
+                State varchar(50) Not Null,
                 Primary Key (MaTK, MaSP),
                 Constraint LS_MaTK_FK Foreign Key (MaTK) References Account(MaTK) On Delete cascade,
                 Constraint LS_MaSP_FK Foreign Key (MaSP) References Products(MaSP) On Delete cascade
