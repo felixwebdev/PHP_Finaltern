@@ -25,40 +25,65 @@
 </div>
 <?php
     include('model/m_database.php');
-    // Lấy params từ URL (nếu có)
-    $filterYear     = $_GET['year']     ?? '';
-    $filterCategory = $_GET['category'] ?? '';
-    $sortPrice      = $_GET['sort']     ?? '';
+    $db = new M_database();
 
-    // Mockup data mẫu (thêm year & category)
-    $products = [
-        ['id'=>1,'name'=>'SP 1','image'=>'./media/image/product1.jpg','price'=>199000,'description'=>'Mô tả 1','year'=>2021,'category'=>'Điện thoại'],
-        ['id'=>2,'name'=>'SP 2','image'=>'./media/image/product2.jpg','price'=>249000,'description'=>'Mô tả 2','year'=>2022,'category'=>'Laptop'],
-        ['id'=>3,'name'=>'SP 3','image'=>'./media/image/product3.jpg','price'=>299000,'description'=>'Mô tả 3','year'=>2021,'category'=>'Tablet'],
-        ['id'=>4,'name'=>'SP 4','image'=>'./media/image/product4.jpg','price'=>179000,'description'=>'Mô tả 4','year'=>2023,'category'=>'Điện thoại'],
-        ['id'=>5,'name'=>'SP 5','image'=>'./media/image/product5.jpg','price'=>219000,'description'=>'Mô tả 5','year'=>2022,'category'=>'Laptop'],
-    ];
-
-    // Danh sách năm & category để dựng dropdown
-    $years = array_unique(array_column($products, 'year'));
-    sort($years);
-    $categories = array_unique(array_column($products, 'category'));
-    sort($categories);
-
-    // 1. Filter theo year & category
-    $filtered = array_filter($products, function($p) use($filterYear,$filterCategory){
-        if ($filterYear && $p['year'] != $filterYear) return false;
-        if ($filterCategory && $p['category'] != $filterCategory) return false;
-        return true;
-    });
-
-    // 2. Sort theo giá
-    if ($sortPrice === 'asc') {
-        usort($filtered, fn($a,$b)=>$a['price'] <=> $b['price']);
-    } elseif ($sortPrice === 'desc') {
-        usort($filtered, fn($a,$b)=>$b['price'] <=> $a['price']);
+    // Lấy danh sách năm duy nhất từ NSX (DATE) → chỉ lấy phần năm
+    $db->setQuery("SELECT DISTINCT YEAR(NSX) AS YearOnly FROM products ORDER BY YearOnly DESC");
+    $resYear = $db->excuteQuery();
+    $years = [];
+    while ($row = $resYear->fetch_assoc()) {
+        $years[] = $row['YearOnly'];
     }
+
+    echo $years[0]; // In ra năm đầu tiên trong danh sách
+
+    // Lấy danh sách phân loại
+    $db->setQuery("SELECT DISTINCT PhanLoai FROM products");
+    $resCategory = $db->excuteQuery();
+    $categories = [];
+    while ($row = $resCategory->fetch_assoc()) {
+        $categories[] = $row['PhanLoai'];
+    }
+
+    // Lấy filter từ URL
+    $filterYear = $_GET['year'] ?? '';
+    $filterCategory = $_GET['category'] ?? '';
+    $sortPrice = $_GET['sort'] ?? '';
+
+    // Xây dựng query động
+    $sql = "SELECT * FROM products WHERE 1=1";
+
+    // Lọc theo năm sản xuất
+    if ($filterYear !== '') {
+        $sql .= " AND YEAR(NSX) = " . (int)$filterYear;
+    }
+
+    // Lọc theo phân loại
+    if ($filterCategory !== '') {
+        $sql .= " AND PhanLoai = '" . $db->conn->real_escape_string($filterCategory) . "'";
+    }
+
+    // Sắp xếp theo giá
+    if ($sortPrice === 'asc') {
+        $sql .= " ORDER BY GiaTien ASC";
+    } elseif ($sortPrice === 'desc') {
+        $sql .= " ORDER BY GiaTien DESC";
+    }
+
+    // Thực thi query và lấy dữ liệu
+    $db->setQuery($sql);
+    $result = $db->excuteQuery();
+
+    $products = [];
+    if ($result && $result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $products[] = $row;
+        }
+    }
+
+    $db->close();
 ?>
+
 
 <div class="container__product container py-5">
     <h2 class="text-center mb-4">Danh sách sản phẩm</h2>
@@ -67,7 +92,7 @@
     <form class="row g-3 mb-4" method="get">
         <div class="col-md-3">
             <select name="year" class="form-select">
-                <option value="">-- Năm sản xuất --</option>
+                <option value=""> Năm sản xuất </option>
                 <?php foreach($years as $y): ?>
                     <option value="<?= $y ?>"
                         <?= $filterYear===$y?'selected':'' ?>>
@@ -78,7 +103,7 @@
         </div>
         <div class="col-md-3">
             <select name="category" class="form-select">
-                <option value="">-- Phân loại --</option>
+                <option value=""> Phân loại </option>
                 <?php foreach($categories as $c): ?>
                     <option value="<?= $c ?>"
                         <?= $filterCategory===$c?'selected':'' ?>>
@@ -89,7 +114,7 @@
         </div>
         <div class="col-md-3">
             <select name="sort" class="form-select">
-                <option value="">-- Sắp xếp giá --</option>
+                <option value=""> Sắp xếp giá </option>
                 <option value="asc"  <?= $sortPrice==='asc'?'selected':'' ?>>Giá tăng dần</option>
                 <option value="desc" <?= $sortPrice==='desc'?'selected':'' ?>>Giá giảm dần</option>
             </select>
@@ -101,23 +126,23 @@
 
     <!-- Product Grid -->
     <div class="row">
-        <?php if(empty($filtered)): ?>
+        <?php if(empty($products)): ?>
             <div class="col-12">
                 <p class="text-center text-muted">Không có sản phẩm nào phù hợp.</p>
             </div>
         <?php else: ?>
-            <?php foreach ($filtered as $product): ?>
+            <?php foreach ($products as $product): ?>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                     <div class="card h-100">
-                        <img src="<?= $product['image'] ?>" class="card-img-top" alt="<?= $product['name'] ?>">
+                        <img src="<?= $product['ImageSP'] ?>" class="card-img-top" alt="<?= $product['TenSP'] ?>">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title"><?= $product['name'] ?></h5>
-                            <p class="card-text text-danger fw-bold"><?= number_format($product['price'],0,',','.') ?>đ</p>
+                            <h5 class="card-title"><?= $product['TenSP'] ?></h5>
+                            <p class="card-text text-danger fw-bold"><?= number_format($product['GiaTien'],0,',','.') ?>đ</p>
                             <p class="card-text small text-muted mb-1">
-                                <?= $product['category'] ?> • <?= $product['year'] ?>
+                                <?= $product['PhanLoai'] ?> • <?= $product['NSX'] ?>
                             </p>
-                            <p class="card-text small"><?= $product['description'] ?></p>
-                            <a href="product-detail.php?id=<?= $product['id'] ?>" class="btn btn-primary mt-auto">Xem chi tiết</a>
+                            <p class="card-text small"><?= $product['MoTa'] ?></p>
+                            <a href="product_detail.php?id=<?= $product['MaSP'] ?>" class="btn btn-primary mt-auto">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>
