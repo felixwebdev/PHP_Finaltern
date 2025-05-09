@@ -7,34 +7,29 @@ if (session_status() == PHP_SESSION_NONE) {
 
 // Lấy dữ liệu từ form
 $email = trim($_POST['email'] ?? '');
-$phone = trim($_POST['phone'] ?? '');
+$password = trim($_POST['password'] ?? '');
 
 // Kiểm tra đầu vào
-if (empty($email) || empty($phone)) {
+if (empty($email) || empty($password)) {
     die('Vui lòng nhập đầy đủ thông tin.');
 }
 
-// Xác định là email hay số điện thoại
-$is_email = filter_var($email, FILTER_VALIDATE_EMAIL);
-$is_phone = preg_match('/^0\d{9}$/', $email); // Bắt đầu bằng 0, 10 số
-
-if (!$is_email && !$is_phone) {
-    die('Email hoặc số điện thoại không hợp lệ.');
+// Kiểm tra định dạng email
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    die('Email không hợp lệ.');
 }
 
 $acc = new M_account();
-$result = $acc->findAccount($email, $phone);
-
+$result = $acc->findAccount($email, $password);
 
 if ($result && $result->num_rows > 0) {
     $account = $result->fetch_assoc();
 
     // Lưu thông tin vào session
-    // $_SESSION['MaTK'] = $account['MaTK'];
     $_SESSION['TenTK'] = $account['TenTK'];
     $_SESSION['LevelID'] = $account['LevelID'];
 
-    // Điều hướng
+    // Điều hướng theo quyền
     if ($account['LevelID'] == 1) {
         header('Location: ../admin/dashboard.php');
     } else {

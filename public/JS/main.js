@@ -4,7 +4,6 @@ const cartTab = document.querySelector('.cartTab')
 const cartClose = document.querySelector('.close-cartTab')
 const cartlist = document.querySelector('.cart-list')
 
-
 cartIcon.addEventListener('click', () => {
     cartTab.classList.toggle('showCart');
     showgiohangotherweb()
@@ -52,3 +51,10 @@ function showgiohangotherweb() {
     }
     document.querySelector('.cart-list').innerHTML = ttgh;
 }
+
+const myCarouselElement = document.querySelector('#myCarousel')
+
+const carousel = new bootstrap.Carousel(myCarouselElement, {
+  interval: 2000,
+  touch: false
+})

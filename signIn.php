@@ -27,8 +27,8 @@
                 <input type="text" class="form-control" id="email" name="email" placeholder="Email address" required>
             </div>
             <div class="input-group uf-input-group input-group-lg mb-3">
-                <span class="input-group-text fa fa-phone"></span>
-                <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone" required>
+                <span class="input-group-text fa fa-lock"></span>
+                <input type="password" name="password" id="password" class="form-control" placeholder="password" required>
             </div>
             <?php if (isset($_GET['error']) && $_GET['error'] == 'invalid'): ?>
                 <p style="color: red; text-align: center; font-weight: bold;">

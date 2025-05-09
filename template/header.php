@@ -28,10 +28,7 @@
                 <?php if ($isLoggedIn): ?>
                     <?php if ($isAdmin): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Quản lý</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Thêm sản phẩm</a>
+                            <a class="nav-link" href="analystic_general.php">Quản lý</a>
                         </li>
                     <?php else: ?>
                         <li class="nav-item cart-icon d-none d-lg-block">

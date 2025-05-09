@@ -36,11 +36,24 @@
                 <span class="input-group-text fa fa-home"></span>
                 <input type="text" name="DiaChi" class="form-control" placeholder="Address" required>
             </div>
-            <?php if (isset($_GET['error']) && $_GET['error'] == 'insertfail'): ?>
-                <p style="color: red; text-align: center; font-weight: bold;">
-                    Email hoặc SDT đã tồn tại
-                </p>
-            <?php endif; ?>
+            <div class="input-group uf-input-group input-group-lg mb-3">
+                <span class="input-group-text fa fa-lock"></span>
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+            <div class="input-group uf-input-group input-group-lg mb-3">
+                <span class="input-group-text fa fa-lock"></span>
+                <input type="password" name="confirnPassword" class="form-control" placeholder="Confirn password" required>
+            </div>
+            <?php
+            if (isset($_GET['error'])) {
+                if ($_GET['error'] == 'exists') {
+                    echo '<p style="color: white; text-align: center; font-weight: bold;">Email hoặc SDT đã tồn tại</p>';
+                } elseif ($_GET['error'] == 'passwordmismatch') {
+                    echo '<p style="color: white; text-align: center; font-weight: bold;">Mật khẩu và xác nhận mật khẩu không khớp</p>';
+                }
+            }
+            ?>
+
             <div class="d-grid mb-4">
                 <button type="submit" class="btn uf-btn-primary btn-lg">Sign Up</button>
             </div>
