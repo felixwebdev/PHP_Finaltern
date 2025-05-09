@@ -1,11 +1,49 @@
 <?php
+    include_once('model/m_database.php');
+    $db = new M_database();
     session_start();
 
     $isLoggedIn = isset($_SESSION['user_id']);
     $isAdmin = isset($_SESSION['levelID']) && $_SESSION['levelID'] == 1; 
     $username = $isLoggedIn ? $_SESSION['username'] : null;
-
+    $maKH = $_SESSION['user_id'] ?? 0;
     $currentPage = basename($_SERVER['PHP_SELF']); 
+
+    if ($isLoggedIn) {
+        $db->setQuery("SELECT c.MaSP, c.SoLuong, c.GiaTien, p.TenSP, p.ImageSP
+        FROM cart c
+        JOIN products p ON c.MaSP = p.MaSP
+        WHERE c.MaTK = $maKH AND c.State = 'chưa thanh toán'");
+
+        $result = $db->excuteQuery();
+
+        if ($result && $result->num_rows > 0) {
+        $cartItems = [];
+        while ($row = $result->fetch_assoc()) {
+        $cartItems[] = $row; 
+        }
+        } else {
+        $cartItems = [];
+        }
+
+        $db->close();
+        } else {
+        $cartItems = [];
+    }
+
+    if (isset($_GET['action']) && $_GET['action'] == 'remove' && isset($_GET['id'])) {
+        $product_id = intval($_GET['id']);
+        $maKH = $_SESSION['user_id'] ?? 0;
+    
+        $db = new M_database();
+        $sql = "DELETE FROM cart WHERE MaTK = $maKH AND MaSP = $product_id";
+        $db->setQuery($sql);
+        $db->excuteQuery();
+        $db->close();
+    
+        header("Location: " . basename($_SERVER['PHP_SELF']));
+        exit();
+    }    
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
@@ -72,25 +110,35 @@
         </div>
 </nav>
 
+
 <div class="cartTab">
     <header class="cartTab-header">
         <span class="close-cartTab">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
             </svg>
         </span>
     </header>
     <div class="listCart">
-        <div class="cart-item">
-            
-            <img src="https://via.placeholder.com/50" alt="Product Image">
-            <div class="cart-item-details">
-                <h5>Product Name</h5>
-                <p>Price: $10.00</p>
-                <p>Quantity: 1</p>
-            </div>
-            <button class="remove-item">Remove</button>
-        </div>
-        <!-- Add more cart items as needed -->
+        <?php if (count($cartItems) > 0): ?>
+            <?php foreach ($cartItems as $item): ?>
+                <div class="cart-item">
+                    <div class="cart-item-details">
+                        <h5><?= htmlspecialchars($item['TenSP']) ?></h5>
+                        <p>Giá: $<?= number_format($item['GiaTien'], 2) ?></p>
+                        <p>Số lượng: <?= $item['SoLuong'] ?></p>
+                    </div>
+                    <a href="?action=remove&id=<?= $item['MaSP'] ?>" class="remove-item">Bỏ</a>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p class="cart-item">Giỏ hàng đang trống.</p>
+        <?php endif; ?>
     </div>
+    <?php if (count($cartItems) > 0): ?>
+    <!-- Add Checkout Button -->
+    <div class="checkout-section">
+        <button class="checkout-button">Thanh Toán</button>
+    </div>
+    <?php endif; ?>
 </div>

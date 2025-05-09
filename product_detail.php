@@ -2,8 +2,6 @@
 <?php include('template/header.php') ?>
 
 <?php
-    include('model/m_database.php');
-
     $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
     $db = new M_database();
     $db->setQuery("SELECT * FROM products WHERE MaSP = $id");
@@ -35,17 +33,16 @@
             <p class="mt-3">Thông tin sản phẩm: <?= nl2br($product['MoTa']) ?></p>
 
             <form method="post" action="controller/c_addToCart.php" class="mt-4">
-            <input type="hidden" name="product_id" value="<?= $product['MaSP'] ?>">
+                <input type="hidden" id="product_id" name="product_id" value="<?= $product['MaSP'] ?>" required>
 
-            <div class="mb-3">
-                <label for="quantity" class="form-label me-2">Số lượng:</label>
-                <input type="number" id="quantity" name="quantity" value="1" min="1" max="<?= $product['SoLuong'] ?>" class="form-control w-25 d-inline-block" required>
-            </div>
+                <div class="mb-3">
+                    <label for="quantity" class="form-label me-2">Số lượng:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" max="<?= $product['SoLuong'] ?>" class="form-control w-25 d-inline-block" required>
+                </div>
 
-            <button type="submit" class="btn btn-success">🛒 Thêm vào giỏ hàng</button>
-            <a href="index.php" class="btn btn-secondary ms-2">← Quay lại</a>
-        </form>
-
+                <button type="submit" class="btn btn-success">🛒 Thêm vào giỏ hàng</button>
+                <a href="index.php" class="btn btn-secondary ms-2">← Quay lại</a>
+            </form>
         </div>
     </div>
 </div>

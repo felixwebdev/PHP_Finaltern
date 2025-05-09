@@ -24,7 +24,6 @@
     </main>
 </div>
 <?php
-    include('model/m_database.php');
     $db = new M_database();
 
     // Lấy danh sách năm duy nhất từ NSX (DATE) → chỉ lấy phần năm
