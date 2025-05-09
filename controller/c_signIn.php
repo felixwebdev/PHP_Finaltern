@@ -31,7 +31,7 @@ if ($result && $result->num_rows > 0) {
 
     // Điều hướng theo quyền
     if ($account['LevelID'] == 1) {
-        header('Location: ../admin/dashboard.php');
+        header('Location: ../admin/adminPage.php');
     } else {
         header('Location: ../index.php');
     }
