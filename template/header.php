@@ -82,6 +82,7 @@
     </header>
     <div class="listCart">
         <div class="cart-item">
+            
             <img src="https://via.placeholder.com/50" alt="Product Image">
             <div class="cart-item-details">
                 <h5>Product Name</h5>

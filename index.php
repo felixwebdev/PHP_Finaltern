@@ -28,14 +28,12 @@
     $db = new M_database();
 
     // Lấy danh sách năm duy nhất từ NSX (DATE) → chỉ lấy phần năm
-    $db->setQuery("SELECT DISTINCT YEAR(NSX) AS YearOnly FROM products ORDER BY YearOnly DESC");
+    $db->setQuery("SELECT DISTINCT NSX FROM products ORDER BY NSX DESC");
     $resYear = $db->excuteQuery();
     $years = [];
     while ($row = $resYear->fetch_assoc()) {
-        $years[] = $row['YearOnly'];
+        $years[] = date('Y', strtotime($row['NSX'])); 
     }
-
-    echo $years[0]; // In ra năm đầu tiên trong danh sách
 
     // Lấy danh sách phân loại
     $db->setQuery("SELECT DISTINCT PhanLoai FROM products");

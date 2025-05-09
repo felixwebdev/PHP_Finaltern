@@ -9,5 +9,5 @@
 
     $_SESSION['user_id'] = "123";
     $_SESSION['username'] = "JohnDoe";
-    $_SESSION['levelID'] = 1;
+    $_SESSION['levelID'] = 0;
 ?>

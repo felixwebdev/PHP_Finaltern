@@ -1,5 +1,3 @@
-<?php include('template/head.php') ?>
-<?php include('template/header.php') ?>
 <?php include "template/sidebar.php"; ?>
 <?php require_once "controller/c_donhang.php"; ?>
 
@@ -125,4 +123,3 @@
         </div>
     </div>
 </div>
-<?php include "template/script_footer.php"; ?>
