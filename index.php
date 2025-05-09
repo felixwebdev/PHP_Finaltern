@@ -1,7 +1,20 @@
 <?php include('template/head.php') ?>
 <?php include('template/header.php') ?>
 <div class="main__container">
-    <div class="container__banner"></div>
+    <!-- <div class="container__banner"></div> -->
+
+    <div class="container__banner">
+        <div class="banner__inner">
+            <div class="banner__title">
+                <h3>PSHOP</h3>
+            </div>
+
+            <div class="banner__description">
+                <p>Đồ điện tử ? Ghé PSHOP</p>
+            </div>
+        </div>
+    </div>
+
     <main>
         <div class="slider" style="
             --width: 100px;

@@ -1,9 +1,28 @@
 
+ 
+
+/* ------------------beginbegin Banner--------------------- */
 .container__banner  {
     width: 100%;
     height: 500px;
+    position: relative;
     background: url('../../media/image/banner.jpg') no-repeat center/cover;
-}   
+}  
+
+.banner__inner {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.banner__title, .banner__description {
+    color: white;
+    font-size: 20px;
+}
+/* ------------------end Banner--------------------- */
+
 /* ------------------beign Slider--------------------- */
 main{
     width: min(1200px, 90vw);
@@ -57,22 +76,22 @@ main{
         left: 100%;
     }
 }
-
 /* ------------------end Slider--------------------- */
 
+/* ------------------beign Container--------------------- */
 .About-container {
     width: 80%;
     margin: 0 auto;
     padding: 50px 0;
 }
 
-h3 {
+/* h3 {
     text-align: center;
     font-size: 32px;
     font-weight: bold;
     color: #ff6600;
     margin-bottom: 20px;
-}
+} */
 
 .about-img {
     text-align: center;
@@ -123,3 +142,4 @@ h3 {
     margin: 5px 0;
     font-size: 18px;
 }
+/* ------------------end Container--------------------- */

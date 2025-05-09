@@ -6,11 +6,17 @@
 
 
 :root {
-    --main-color: #ee4d2d;
+    --main-color:   #FF5722;
     --second-color: #2980b9;
     --third-color: #ecf0f1;
     --fourth-color: #e74c3c;
     --fifth-color: #2ecc71;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: 	#F5F5F5;
+    color: #333;
 }
 
 /* -----------------------Navbar---------------------------*/
@@ -81,7 +87,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: 	#FF7043;
     transform: translateX(100%);
     transition: transform 0.3s ease;
     box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.2);

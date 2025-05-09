@@ -4,10 +4,21 @@
     session_start();
 
     $isLoggedIn = isset($_SESSION['user_id']);
-    $isAdmin = isset($_SESSION['levelID']) && $_SESSION['levelID'] == 1; 
-    $username = $isLoggedIn ? $_SESSION['username'] : null;
+    $isAdmin = isset($_SESSION['levelID']) && $_SESSION['levelID'] == 1;
+
     $maKH = $_SESSION['user_id'] ?? 0;
-    $currentPage = basename($_SERVER['PHP_SELF']); 
+    $currentPage = basename($_SERVER['PHP_SELF']);
+
+    $username = null;
+
+    if ($isLoggedIn && $maKH > 0) {
+        $db->setQuery("SELECT TenTK FROM account WHERE MaTK = $maKH");
+        $result = $db->excuteQuery();
+        if ($result && $row = $result->fetch_assoc()) {
+            $username = $row['TenTK'];
+        }
+    }
+
 
     if ($isLoggedIn) {
         $db->setQuery("SELECT c.MaSP, c.SoLuong, c.GiaTien, p.TenSP, p.ImageSP
@@ -47,7 +58,7 @@
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="index.php">PSHOP</a>
+        <a class="navbar-brand" href="index.php" style="font-style:normal">PSHOP</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -88,12 +99,12 @@
                         </svg>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#"><?= htmlspecialchars($username) ?></a></li>
+                            <li><a class="dropdown-item" href="user.php"><?= htmlspecialchars($username) ?></a></li>
                             <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
                         </ul>
                     </li>
                     <li class="nav-item d-block d-lg-none">
-                        <a class="nav-link" href="#"><?= htmlspecialchars($username) ?></a>
+                        <a class="nav-link" href="user.php"><?= htmlspecialchars($username) ?></a>
                     </li>
                     <li class="nav-item d-block d-lg-none">
                          <a class="nav-link" href="logout.php">Đăng xuất</a>
