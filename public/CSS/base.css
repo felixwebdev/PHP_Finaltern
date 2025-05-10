@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+      font-family: 'Roboto', sans-serif !important;
+}
+
 
 :root {
     --main-color:   #FF5722;
@@ -44,6 +48,11 @@ body {
 
 .nav {
     position: relative;
+}
+
+.searchbar {
+    border-radius: 20px;
+    line-height: 50px;
 }
 
 .main__container {

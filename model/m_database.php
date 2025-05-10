@@ -23,5 +23,9 @@
         public function getConnection() {
             return $this->conn;
         }
+
+        public function real_escape_string($string) {
+            return $this->conn->real_escape_string($string);
+        }
     }
 ?>

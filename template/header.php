@@ -45,11 +45,19 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="index.php" style="font-style:normal">PSHOP</a>
+        <form class="form-inline" method="GET" action="searchProduct.php">
+            <input class="searchbar d-block d-lg-none form-control mr-sm-2" type="search" name="query" placeholder="Bạn cần tìm gì?" aria-label="Search">
+        </form>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
+                 <li class="nav-item">
+                    <form class="form-inline" method="GET" action="searchProduct.php">
+                        <input class="searchbar form-control mr-sm-2" type="search" name="query" placeholder="Bạn cần tìm gì?" aria-label="Search">
+                    </form>
+                </li>
                 <li class="nav-item <?= ($currentPage === 'index.php') ? 'active' : '' ?>">
                     <a class="nav-link" href="index.php">Trang chủ</a>
                 </li>
