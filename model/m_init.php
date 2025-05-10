@@ -47,6 +47,20 @@
             $this->setQuery($sql_Carts);
             $this->excuteQuery();
 
+            $sql_LS_Mua = "Create Table If Not Exists LS_Mua (
+                MaTK int(6) Zerofill Not Null,
+                MaSP varchar(6) Not Null,
+                SoLuong int Not Null,
+                GiaTien float Not Null,
+                State varchar(50) Not Null,
+                NgayMua TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                Primary Key (MaTK, MaSP),
+                Constraint LS_MaTK_FK Foreign Key (MaTK) References Account(MaTK) On Delete cascade,
+                Constraint LS_MaSP_FK Foreign Key (MaSP) References Products(MaSP) On Delete cascade
+                )";
+            $this->setQuery($sql_LS_Mua);
+            $this->excuteQuery();
+
             $sql_Voucher = "Create Table If Not Exists Vouchers (
                 MaV varchar(10) Not Null Primary Key,
                 Discount float Not Null
