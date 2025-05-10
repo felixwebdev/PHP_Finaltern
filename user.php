@@ -120,7 +120,12 @@
         $user = $db->excuteQuery()->fetch_assoc();
 
         // Lấy lịch sử đơn hàng
-        $db->setQuery("SELECT * FROM cart WHERE MaTK = $maKH");
+        $db->setQuery("
+            SELECT c.MaSP, c.SoLuong, c.GiaTien, c.NgayMua, c.State, p.TenSP, p.ImageSP
+            FROM cart c
+            JOIN products p ON c.MaSP = p.MaSP
+            WHERE c.MaTK = $maKH
+        ");
         $orders = $db->excuteQuery();
 
         $db->close();
@@ -144,11 +149,12 @@
     <h2>Lịch sử mua hàng</h2>
     <table>
         <tr>
-            <th>Mã sản phẩm</th><th>Giá tiền</th><th>Số lượng</th><th>Tổng tiền</th><th>Trạng thái</th>
+            <th>Tên sản phẩm</th><th>Ngày mua</th><th>Giá tiền</th><th>Số lượng</th><th>Tổng tiền</th><th>Trạng thái</th>
         </tr>
         <?php while ($row = $orders->fetch_assoc()): ?>
         <tr>
-            <td data-label="Mã sản phẩm"><?= $row['MaSP'] ?></td>
+            <td data-label="Tên sản phẩm"><?= $row['TenSP'] ?></td>
+            <td data-label="Ngày mua"><?= date_format(new DateTime($row['NgayMua']), "H:i:s d/m/Y") ?></td>
             <td data-label="Giá tiền"><?= number_format($row['GiaTien'], 0, ',', '.') ?>đ</td>
             <td data-label="Số lượng"><?= $row['SoLuong'] ?></td>
             <td data-label="Tổng tiền"><?= number_format($row['GiaTien']*$row['SoLuong'], 0, ',', '.') ?>đ</td>

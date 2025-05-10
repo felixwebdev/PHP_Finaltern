@@ -3,9 +3,6 @@ session_start();
 require_once("m_database.php");
 class M_account extends M_database
 {
-    //Hàm insert account
-    //Hàm isUserExist để check tài khoản đã tồn tại hay chưa
-    //Hàm findUser để check lúc đăng nhập
     public function findAccount($email, $password)
     {
         $conn = $this->getConnection();
@@ -34,6 +31,14 @@ class M_account extends M_database
 
         $stmt = $conn->prepare("INSERT INTO account (TenTK, Email, SDT, DiaChi, Password, LevelID) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssi", $tenTK, $email, $phone, $diaChi, $password, $level);
+        return $stmt->execute();
+    }
+
+    public function updateAccount($maTK, $tenTK, $email, $phone, $diaChi)
+    {
+        $conn = $this->getConnection();
+        $stmt = $conn->prepare("UPDATE account SET TenTK = ?, Email = ?, SDT = ?, DiaChi = ? WHERE MaTK = ?");
+        $stmt->bind_param("ssssi", $tenTK, $email, $phone, $diaChi, $maTK);
         return $stmt->execute();
     }
 }

@@ -1,8 +1,6 @@
 <?php include('template/head.php') ?>
 <?php include('template/header.php') ?>
 <div class="main__container">
-    <!-- <div class="container__banner"></div> -->
-
     <div class="container__banner">
         <div class="banner__inner">
             <div class="banner__title">
@@ -39,12 +37,11 @@
 <?php
     $db = new M_database();
 
-    // Lấy danh sách năm duy nhất từ NSX (DATE) → chỉ lấy phần năm
-    $db->setQuery("SELECT DISTINCT NSX FROM products ORDER BY NSX DESC");
+   $db->setQuery("SELECT DISTINCT RIGHT(NSX, 4) as YearOnly FROM products ORDER BY YearOnly DESC");
     $resYear = $db->excuteQuery();
     $years = [];
     while ($row = $resYear->fetch_assoc()) {
-        $years[] = date('Y', strtotime($row['NSX'])); 
+        $years[] = $row['YearOnly'];
     }
 
     // Lấy danh sách phân loại
@@ -65,7 +62,7 @@
 
     // Lọc theo năm sản xuất
     if ($filterYear !== '') {
-        $sql .= " AND YEAR(NSX) = " . (int)$filterYear;
+        $sql .= " AND RIGHT(NSX, 4) = " . (int)$filterYear;
     }
 
     // Lọc theo phân loại
@@ -149,9 +146,7 @@
                             <h5 class="card-title"><?= $product['TenSP'] ?></h5>
                             <p class="card-text text-danger fw-bold"><?= number_format($product['GiaTien'],0,',','.') ?>đ</p>
                             <p class="card-text small text-muted mb-1">
-                                <?= $product['PhanLoai'] ?> • <?= $product['NSX'] ?>
                             </p>
-                            <p class="card-text small"><?= $product['MoTa'] ?></p>
                             <a href="product_detail.php?id=<?= $product['MaSP'] ?>" class="btn btn-primary mt-auto">Xem chi tiết</a>
                         </div>
                     </div>

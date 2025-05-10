@@ -1,17 +1,19 @@
 <?php
     session_start();
-    include('../model/m_database.php');
-    $db = new M_database();
+    include_once("../model/m_giohang.php");
+    $cart = new M_giohang();
 
     $maKH = $_SESSION['user_id'] ?? 0;
     $maSP = isset($_POST['product_id']) ? $_POST['product_id'] : 0;
     $soLuong = isset($_POST['quantity']) ? (int)$_POST['quantity'] : 1;
 
-    if ($maKH <= 0 || $maSP <= 0 || $soLuong <= 0) {
+    if (!isset($_SESSION['user_id'])) {
+         header("Location: ../signin.php");
+    }
+    else if ($maKH <= 0 || $maSP <= 0 || $soLuong <= 0) {
         die("Thiếu thông tin hoặc không hợp lệ.");
     }
-
-    // Lấy giá sản phẩm
+  
     $db->setQuery("SELECT GiaTien FROM products WHERE MaSP = '$maSP'");
     $result = $db->excuteQuery();
     $row = $result ? $result->fetch_assoc() : null;
@@ -22,22 +24,16 @@
 
     $gia = $row['GiaTien'];
 
-    // Kiểm tra nếu sản phẩm đã có trong giỏ => update
     $db->setQuery("SELECT * FROM cart WHERE MaTK = $maKH AND MaSP = '$maSP' AND State = 'chưa thanh toán'");
     $res = $db->excuteQuery();
 
     if ($res && $res->num_rows > 0) {
-        $db->setQuery("UPDATE cart 
-                    SET SoLuong = SoLuong + $soLuong
-                    WHERE MaTK = $maKH AND MaSP = '$maSP' AND State = 'chưa thanh toán'");
+        $cart->updateCart($maKH, $maSP, $soLuong);
     } else {
-        $db->setQuery("INSERT INTO cart (MaTK, MaSP, SoLuong, GiaTien, State)
-                    VALUES ($maKH, '$maSP', $soLuong, $gia, 'chưa thanh toán')");
+        $cart->addToCart($maKH, $maSP, $soLuong, $gia, 'chưa thanh toán');
     }
 
-    $db->excuteQuery();
-    $db->close();
-
-    header("Location: ../index.php");
+    $cart->close();
+    header("Location: " . $_SERVER['HTTP_REFERER']);
     exit;
 ?>

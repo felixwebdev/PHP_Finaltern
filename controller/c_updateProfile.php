@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include('../model/m_database.php');
+    include('../model/m_account.php');
 
     $maKH = $_SESSION['user_id'] ?? 0;
     if ($maKH <= 0) die("Không xác định người dùng.");
@@ -10,10 +10,14 @@
     $sdt = $_POST['SDT'] ?? '';
     $diaChi = $_POST['DiaChi'] ?? '';
 
-    $db = new M_database();
-    $db->setQuery("UPDATE account SET TenTK='$hoTen', Email='$email', SDT='$sdt', DiaChi='$diaChi' WHERE MaTK=$maKH");
-    $db->excuteQuery();
-    $db->close();
-
+    $acc = new M_account();
+    if ($acc->updateAccount($maKH, $hoTen, $email, $sdt, $diaChi)) {
+        $_SESSION['username'] = $hoTen;
+        $_SESSION['email'] = $email;
+        $_SESSION['sdt'] = $sdt;
+        $_SESSION['diachi'] = $diaChi;
+    } else {
+        die("Cập nhật thông tin thất bại.");
+    }
     header("Location: ../user.php");
 exit;

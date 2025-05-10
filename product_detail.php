@@ -2,9 +2,9 @@
 <?php include('template/header.php') ?>
 
 <?php
-    $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+    $id = isset($_GET['id']) ? $_GET['id'] : 0;
     $db = new M_database();
-    $db->setQuery("SELECT * FROM products WHERE MaSP = $id");
+    $db->setQuery("SELECT * FROM products WHERE MaSP = '$id'");
     $result = $db->excuteQuery();
 
     $product = $result ? $result->fetch_assoc() : null;

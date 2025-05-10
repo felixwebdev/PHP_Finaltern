@@ -19,7 +19,6 @@
         }
     }
 
-
     if ($isLoggedIn) {
         $db->setQuery("SELECT c.MaSP, c.SoLuong, c.GiaTien, p.TenSP, p.ImageSP
         FROM cart c
@@ -29,33 +28,20 @@
         $result = $db->excuteQuery();
 
         if ($result && $result->num_rows > 0) {
-        $cartItems = [];
-        while ($row = $result->fetch_assoc()) {
-        $cartItems[] = $row; 
-        }
+            $cartItems = [];
+            while ($row = $result->fetch_assoc()) {
+                $cartItems[] = $row; 
+            }
         } else {
-        $cartItems = [];
+            $cartItems = [];
         }
 
         $db->close();
-        } else {
+    } else {
         $cartItems = [];
     }
-
-    if (isset($_GET['action']) && $_GET['action'] == 'remove' && isset($_GET['id'])) {
-        $product_id = intval($_GET['id']);
-        $maKH = $_SESSION['user_id'] ?? 0;
-    
-        $db = new M_database();
-        $sql = "DELETE FROM cart WHERE MaTK = $maKH AND MaSP = $product_id";
-        $db->setQuery($sql);
-        $db->excuteQuery();
-        $db->close();
-    
-        header("Location: " . basename($_SERVER['PHP_SELF']));
-        exit();
-    }    
 ?>
+
 
 <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="index.php" style="font-style:normal">PSHOP</a>
@@ -99,12 +85,12 @@
                         </svg>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="user.php"><?= htmlspecialchars($username) ?></a></li>
+                            <li><a class="dropdown-item" href="user.php">Thông tin tài khoản</a></li>
                             <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
                         </ul>
                     </li>
                     <li class="nav-item d-block d-lg-none">
-                        <a class="nav-link" href="user.php"><?= htmlspecialchars($username) ?></a>
+                        <a class="nav-link" href="user.php">Thông tin tài khoản</a>
                     </li>
                     <li class="nav-item d-block d-lg-none">
                          <a class="nav-link" href="logout.php">Đăng xuất</a>
@@ -135,11 +121,13 @@
             <?php foreach ($cartItems as $item): ?>
                 <div class="cart-item">
                     <div class="cart-item-details">
-                        <h5><?= htmlspecialchars($item['TenSP']) ?></h5>
+                        <p><?= htmlspecialchars($item['TenSP']) ?></p>
                         <p>Giá: $<?= number_format($item['GiaTien'], 2) ?></p>
                         <p>Số lượng: <?= $item['SoLuong'] ?></p>
                     </div>
-                    <a href="?action=remove&id=<?= $item['MaSP'] ?>" class="remove-item">Bỏ</a>
+                    <?php if (isset($item['MaSP'])): ?>
+                        <a href="controller/c_removeCart.php?action=remove&id=<?= $item['MaSP'] ?>&return_url=<?= urlencode($_SERVER['REQUEST_URI']) ?>" class="remove-item">Xóa</a>
+                    <?php endif; ?>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>

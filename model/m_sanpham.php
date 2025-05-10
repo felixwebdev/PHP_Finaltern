@@ -1,4 +1,6 @@
 <?php
+    include_once("m_database.php");
+    $db = new M_database();
     class SanPhamModel {
         public $img, $ten, $danh_muc, $gia, $so_luong, $ngay, $trang_thai;
         
