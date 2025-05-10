@@ -9,7 +9,8 @@
         "MoTa": "I5-1235U/16GB/512GB PCIE/15.6 FHD/WIN11/BẠC",
         "ImageSP": "/media/image/Product_img/SP0001.webp",
         "MaTK": "000001",
-        "BaoHanh": "12 Tháng"
+        "BaoHanh": "12 Tháng",
+        "TagName": "Laptop Asus, Asus, Văn Phòng, Gaming"
     },
     {
         "MaSP": "SP0002",
@@ -21,7 +22,8 @@
         "MoTa": "5-12500H/16GB/512GB PCIE/VGA 4GB RTX3050/16.0",
         "ImageSP": "/media/image/Product_img/SP0002.webp",
         "MaTK": "000001",
-        "BaoHanh": "12 Tháng"
+        "BaoHanh": "12 Tháng",
+        "TagName": "Laptop Gaming, Win11, Laptop Văn Phòng, OLED"
     },
     {
         "MaSP": "SP0003",
@@ -33,7 +35,8 @@
         "MoTa": "I7-13620H/16GB/512GB PCIE/15.6 FHD/WIN11/BẠC",
         "ImageSP": "/media/image/Product_img/SP0003.webp",
         "MaTK": "000001",
-        "BaoHanh": "12 Tháng"
+        "BaoHanh": "12 Tháng",
+        "TagName": "Asus, Laptop Gaming, RTX 3050, Win11"
     },
     {
         "MaSP": "SP0004",
@@ -45,7 +48,8 @@
         "MoTa": "I5-13500H/16GB/512GB PCIE/14.0 2.8K OLED/WIN11/ĐEN",
         "ImageSP": "/media/image/Product_img/SP0004.webp",
         "MaTK": "000001",
-        "BaoHanh": "18 Tháng"
+        "BaoHanh": "18 Tháng",
+        "TagName": "RTX 3050, Laptop Văn Phòng, Laptop Gaming, Asus"
     },
     {
         "MaSP": "SP0005",
@@ -57,7 +61,8 @@
         "MoTa": "I5-12500H/16GB/512GB PCEI/14.0 2.8K OLED/WIN11/BẠC",
         "ImageSP": "/media/image/Product_img/SP0005.webp",
         "MaTK": "000001",
-        "BaoHanh": "12 Tháng"
+        "BaoHanh": "12 Tháng",
+        "TagName": "Win11, OLED, Core i5, RTX 3050"
     },
     {
         "MaSP": "SP0006",
@@ -69,7 +74,8 @@
         "MoTa": "I5-1335U/16GB/512GB PCIE/15.6 FHD/WIN11/XANH",
         "ImageSP": "/media/image/Product_img/SP0006.webp",
         "MaTK": "000001",
-        "BaoHanh": "6 Tháng"
+        "BaoHanh": "6 Tháng",
+        "TagName": "Win11, Core i5, 15.6 inch, Asus"
     },
     {
         "MaSP": "SP0007",
@@ -81,7 +87,8 @@
         "MoTa": "I7-13620H/16GB/512GB PCIE/16.0 WUXGA/WIN11BẠC",
         "ImageSP": "/media/image/Product_img/SP0007.webp",
         "MaTK": "000001",
-        "BaoHanh": "12 Tháng"
+        "BaoHanh": "12 Tháng",
+        "TagName": "Core i5, SSD 512GB, Laptop Văn Phòng, Asus"
     },
     {
         "MaSP": "SP0008",
@@ -93,7 +100,8 @@
         "MoTa": "R5-7520U/16GB/512GB PCIE/14.0 FHD/WIN11/BẠC",
         "ImageSP": "/media/image/Product_img/SP0008.webp",
         "MaTK": "000001",
-        "BaoHanh": "12 Tháng"
+        "BaoHanh": "12 Tháng",
+        "TagName": "SSD 512GB, Core i5, RTX 3050, Asus"
     },
     {
         "MaSP": "SP0009",
@@ -105,7 +113,8 @@
         "MoTa": "R5-7520U/16GB/512GB PCIE/15.6 FHD/WIN11/BẠC",
         "ImageSP": "/media/image/Product_img/SP0009.webp",
         "MaTK": "000001",
-        "BaoHanh": "18 Tháng"
+        "BaoHanh": "18 Tháng",
+        "TagName": "Core i5, Asus, RTX 3050, Win11"
     },
     {
         "MaSP": "SP0010",
@@ -117,7 +126,8 @@
         "MoTa": "U7-155H/16GB/512GB PCIE/16.0 3.2K OLED/WIN11/XANH",
         "ImageSP": "/media/image/Product_img/SP0010.webp",
         "MaTK": "000001",
-        "BaoHanh": "18 Tháng"
+        "BaoHanh": "18 Tháng",
+        "TagName": "Laptop Gaming, OLED, Laptop Văn Phòng, Core i5"
     },
     {
         "MaSP": "SP0011",
@@ -129,7 +139,8 @@
         "MoTa": "Màn hình 6.5\" HD+, chip MediaTek Helio G35, pin 5000mAh, camera chính 50MP",
         "ImageSP": "/media/image/Product_img/SP0011.webp",
         "MaTK": "000001",
-        "BaoHanh": "12 Tháng"
+        "BaoHanh": "12 Tháng",
+        "TagName": "Điện Thoại Cao Cấp, Samsung, 5G, Camera 50MP"
     },
     {
         "MaSP": "SP0012",
@@ -141,7 +152,8 @@
         "MoTa": "Màn hình 6.5\" FHD+ 120Hz, chip Exynos 1280, pin 5000mAh, camera chính 50MP",
         "ImageSP": "/media/image/Product_img/SP0012.webp",
         "MaTK": "000001",
-        "BaoHanh": "6 Tháng"
+        "BaoHanh": "6 Tháng",
+        "TagName": "Pin khủng, Snapdragon, Điện Thoại Cao Cấp, Điện Thoại Giá Rẻ"
     },
     {
         "MaSP": "SP0013",
@@ -153,7 +165,8 @@
         "MoTa": "Màn hình 6.6\" FHD+ 120Hz, chip Exynos 1380, pin 5000mAh, camera chính 50MP",
         "ImageSP": "/media/image/Product_img/SP0013.webp",
         "MaTK": "000001",
-        "BaoHanh": "24 Tháng"
+        "BaoHanh": "24 Tháng",
+        "TagName": "5G, Màn hình lớn, Samsung, Exynos"
     },
     {
         "MaSP": "SP0014",
@@ -165,7 +178,8 @@
         "MoTa": "Màn hình 6.7\" FHD+ 120Hz, chip Exynos 1480, pin 5000mAh, camera chính 50MP",
         "ImageSP": "/media/image/Product_img/SP0014.webp",
         "MaTK": "000001",
-        "BaoHanh": "18 Tháng"
+        "BaoHanh": "18 Tháng",
+        "TagName": "Màn hình lớn, Exynos, AMOLED, Camera 50MP"
     },
     {
         "MaSP": "SP0015",
@@ -177,7 +191,8 @@
         "MoTa": "Màn hình 6.1\" Dynamic AMOLED 2X, chip Snapdragon 8 Gen 2, pin 3900mAh, camera chính 50MP",
         "ImageSP": "/media/image/Product_img/SP0015.webp",
         "MaTK": "000001",
-        "BaoHanh": "6 Tháng"
+        "BaoHanh": "6 Tháng",
+        "TagName": "Samsung, Exynos, Pin khủng, AMOLED"
     },
     {
         "MaSP": "SP0016",
@@ -189,7 +204,8 @@
         "MoTa": "Màn hình 6.6\" Dynamic AMOLED 2X, chip Snapdragon 8 Gen 2, pin 4700mAh, camera chính 50MP",
         "ImageSP": "/media/image/Product_img/SP0016.webp",
         "MaTK": "000001",
-        "BaoHanh": "6 Tháng"
+        "BaoHanh": "6 Tháng",
+        "TagName": "Pin khủng, AMOLED, Exynos, Màn hình lớn"
     },
     {
         "MaSP": "SP0017",
@@ -201,7 +217,8 @@
         "MoTa": "Màn hình 6.8\" Dynamic AMOLED 2X, chip Snapdragon 8 Gen 2, pin 5000mAh, camera chính 200MP",
         "ImageSP": "/media/image/Product_img/SP0017.webp",
         "MaTK": "000001",
-        "BaoHanh": "24 Tháng"
+        "BaoHanh": "24 Tháng",
+        "TagName": "Samsung, Điện Thoại Giá Rẻ, Điện Thoại Cao Cấp, Exynos"
     },
     {
         "MaSP": "SP0018",
@@ -213,7 +230,8 @@
         "MoTa": "Màn hình gập 6.7\" Dynamic AMOLED 2X, chip Snapdragon 8 Gen 2, pin 3700mAh, camera chính 12MP",
         "ImageSP": "/media/image/Product_img/SP0018.webp",
         "MaTK": "000001",
-        "BaoHanh": "12 Tháng"
+        "BaoHanh": "12 Tháng",
+        "TagName": "Camera 50MP, Điện Thoại Giá Rẻ, Samsung, Màn hình lớn"
     },
     {
         "MaSP": "SP0019",
@@ -225,7 +243,8 @@
         "MoTa": "Màn hình gập 7.6\" Dynamic AMOLED 2X, chip Snapdragon 8 Gen 2, pin 4400mAh, camera chính 50MP",
         "ImageSP": "/media/image/Product_img/SP0019.webp",
         "MaTK": "000001",
-        "BaoHanh": "24 Tháng"
+        "BaoHanh": "24 Tháng",
+        "TagName": "Exynos, 5G, Điện Thoại Giá Rẻ, Màn hình lớn"
     },
     {
         "MaSP": "SP0020",
@@ -237,7 +256,8 @@
         "MoTa": "Màn hình QLED 4K 55 inch, tần số quét 60Hz, hỗ trợ HDR, hệ điều hành Tizen",
         "ImageSP": "/media/image/Product_img/SP0020.webp",
         "MaTK": "000001",
-        "BaoHanh": "12 Tháng"
+        "BaoHanh": "12 Tháng",
+        "TagName": "Tivi Samsung, QLED, Smart Tivi, Tivi 65 inch"
     },
     {
         "MaSP": "SP0021",
@@ -249,7 +269,8 @@
         "MoTa": "Màn hình UHD 4K 55 inch, tần số quét 60Hz, hỗ trợ HDR, hệ điều hành Tizen",
         "ImageSP": "/media/image/Product_img/SP0021.webp",
         "MaTK": "000001",
-        "BaoHanh": "24 Tháng"
+        "BaoHanh": "24 Tháng",
+        "TagName": "QLED, Tivi 4K, HDR, Tần số quét cao"
     },
     {
         "MaSP": "SP0022",
@@ -261,7 +282,8 @@
         "MoTa": "Màn hình UHD 4K 43 inch, tần số quét 60Hz, hỗ trợ HDR, hệ điều hành Tizen",
         "ImageSP": "/media/image/Product_img/SP0022.webp",
         "MaTK": "000001",
-        "BaoHanh": "24 Tháng"
+        "BaoHanh": "24 Tháng",
+        "TagName": "Tivi 55 inch, Tizen, Tivi Samsung, UHD"
     },
     {
         "MaSP": "SP0023",
@@ -273,7 +295,8 @@
         "MoTa": "Màn hình UHD 4K 65 inch, tần số quét 60Hz, hỗ trợ HDR, hệ điều hành Tizen",
         "ImageSP": "/media/image/Product_img/SP0023.webp",
         "MaTK": "000001",
-        "BaoHanh": "18 Tháng"
+        "BaoHanh": "18 Tháng",
+        "TagName": "Smart Tivi, UHD, QLED, Tivi Samsung"
     },
     {
         "MaSP": "SP0024",
@@ -285,7 +308,8 @@
         "MoTa": "Màn hình QLED 4K 55 inch, tần số quét 120Hz, hỗ trợ HDR, hệ điều hành Tizen",
         "ImageSP": "/media/image/Product_img/SP0024.webp",
         "MaTK": "000001",
-        "BaoHanh": "6 Tháng"
+        "BaoHanh": "6 Tháng",
+        "TagName": "Tần số quét cao, Smart Tivi, UHD, Tizen"
     },
     {
         "MaSP": "SP0025",
@@ -297,7 +321,8 @@
         "MoTa": "Màn hình UHD 4K 50 inch, tần số quét 60Hz, hỗ trợ HDR, hệ điều hành Tizen",
         "ImageSP": "/media/image/Product_img/SP0025.webp",
         "MaTK": "000001",
-        "BaoHanh": "12 Tháng"
+        "BaoHanh": "12 Tháng",
+        "TagName": "Tivi 55 inch, Tizen, Tần số quét cao, UHD"
     },
     {
         "MaSP": "SP0026",
@@ -309,7 +334,8 @@
         "MoTa": "Màn hình QLED 4K 65 inch, tần số quét 120Hz, hỗ trợ HDR, hệ điều hành Tizen",
         "ImageSP": "/media/image/Product_img/SP0026.webp",
         "MaTK": "000001",
-        "BaoHanh": "18 Tháng"
+        "BaoHanh": "18 Tháng",
+        "TagName": "Tần số quét cao, Tivi 65 inch, Tivi Samsung, UHD"
     },
     {
         "MaSP": "SP0027",
@@ -321,7 +347,8 @@
         "MoTa": "Màn hình QLED 4K 65 inch, thiết kế The Serif độc đáo, tần số quét 60Hz, hỗ trợ HDR, hệ điều hành Tizen",
         "ImageSP": "/media/image/Product_img/SP0027.webp",
         "MaTK": "000001",
-        "BaoHanh": "24 Tháng"
+        "BaoHanh": "24 Tháng",
+        "TagName": "Smart Tivi, Tivi 55 inch, Tivi 4K, HDR"
     },
     {
         "MaSP": "SP0028",
@@ -333,7 +360,8 @@
         "MoTa": "Màn hình QLED 4K 75 inch, tần số quét 60Hz, hỗ trợ HDR, hệ điều hành Tizen",
         "ImageSP": "/media/image/Product_img/SP0028.webp",
         "MaTK": "000001",
-        "BaoHanh": "6 Tháng"
+        "BaoHanh": "6 Tháng",
+        "TagName": "Smart Tivi, Tivi 55 inch, Tizen, HDR"
     },
     {
         "MaSP": "SP0029",
@@ -345,7 +373,8 @@
         "MoTa": "Màn hình UHD 4K 65 inch, tần số quét 60Hz, hỗ trợ HDR, hệ điều hành Tizen",
         "ImageSP": "/media/image/Product_img/SP0029.webp",
         "MaTK": "000001",
-        "BaoHanh": "18 Tháng"
+        "BaoHanh": "18 Tháng",
+        "TagName": "Tivi 55 inch, HDR, QLED, Tần số quét cao"
     },
     {
         "MaSP": "SP0030",
@@ -357,7 +386,8 @@
         "MoTa": "CPU Intel Core i5-12400F, RAM 16GB, SSD 500GB, VGA NVIDIA RTX 3060",
         "ImageSP": "/media/image/Product_img/SP0030.webp",
         "MaTK": "000001",
-        "BaoHanh": "24 Tháng"
+        "BaoHanh": "24 Tháng",
+        "TagName": "RTX 3060, i7, Có màn hình, PC Gaming"
     },
     {
         "MaSP": "SP0031",
@@ -369,7 +399,8 @@
         "MoTa": "CPU Intel Core i5-12400F, RAM 16GB, SSD 256GB, VGA NVIDIA RTX 3060",
         "ImageSP": "/media/image/Product_img/SP0031.webp",
         "MaTK": "000001",
-        "BaoHanh": "12 Tháng"
+        "BaoHanh": "12 Tháng",
+        "TagName": "Máy tính bàn, PC Gaming, RTX 3060, PC Văn Phòng"
     },
     {
         "MaSP": "SP0032",
@@ -381,7 +412,8 @@
         "MoTa": "CPU Intel Core i3 Gen 12, RAM 8GB, SSD 256GB, VGA NVIDIA GTX 1650, kèm màn hình",
         "ImageSP": "/media/image/Product_img/SP0032.webp",
         "MaTK": "000001",
-        "BaoHanh": "24 Tháng"
+        "BaoHanh": "24 Tháng",
+        "TagName": "Máy tính bàn, PC Gaming, Ryzen 3, GTX 1650"
     },
     {
         "MaSP": "SP0033",
@@ -393,7 +425,8 @@
         "MoTa": "CPU Intel Core i5 Gen 14, RAM 16GB, SSD 512GB, VGA NVIDIA RTX 3050, kèm màn hình",
         "ImageSP": "/media/image/Product_img/SP0033.webp",
         "MaTK": "000001",
-        "BaoHanh": "6 Tháng"
+        "BaoHanh": "6 Tháng",
+        "TagName": "PC Văn Phòng, RTX 3060, Máy tính bàn, GTX 1650"
     },
     {
         "MaSP": "SP0034",
@@ -405,7 +438,8 @@
         "MoTa": "CPU AMD Ryzen 3 3200G, RAM 8GB, SSD 256GB, VGA tích hợp, kèm màn hình",
         "ImageSP": "/media/image/Product_img/SP0034.webp",
         "MaTK": "000001",
-        "BaoHanh": "18 Tháng"
+        "BaoHanh": "18 Tháng",
+        "TagName": "i5, RTX 3060, GTX 1650, PC Văn Phòng"
     },
     {
         "MaSP": "SP0035",
@@ -417,7 +451,8 @@
         "MoTa": "CPU AMD Ryzen 5 4600G, RAM 8GB, SSD 256GB, VGA tích hợp, kèm màn hình",
         "ImageSP": "/media/image/Product_img/SP0035.webp",
         "MaTK": "000001",
-        "BaoHanh": "24 Tháng"
+        "BaoHanh": "24 Tháng",
+        "TagName": "PC Văn Phòng, GTX 1650, Ryzen 5, i5"
     },
     {
         "MaSP": "SP0036",
@@ -429,7 +464,8 @@
         "MoTa": "CPU AMD Ryzen 5 5600GT, RAM 8GB, SSD 256GB, VGA tích hợp, kèm màn hình",
         "ImageSP": "/media/image/Product_img/SP0036.webp",
         "MaTK": "000001",
-        "BaoHanh": "18 Tháng"
+        "BaoHanh": "18 Tháng",
+        "TagName": "Máy tính bàn, PC Gaming, Ryzen 5, RTX 3060"
     },
     {
         "MaSP": "SP0037",
@@ -441,7 +477,8 @@
         "MoTa": "CPU Intel Core i3 Gen 12, RAM 8GB, SSD 256GB, VGA NVIDIA GTX 1650, kèm màn hình",
         "ImageSP": "/media/image/Product_img/SP0037.webp",
         "MaTK": "000001",
-        "BaoHanh": "12 Tháng"
+        "BaoHanh": "12 Tháng",
+        "TagName": "Máy tính bàn, RTX 3060, i7, Ryzen 3"
     },
     {
         "MaSP": "SP0038",
@@ -453,7 +490,8 @@
         "MoTa": "CPU AMD Ryzen 5, RAM 16GB, SSD 512GB, VGA NVIDIA GTX 1650, kèm màn hình",
         "ImageSP": "/media/image/Product_img/SP0038.webp",
         "MaTK": "000001",
-        "BaoHanh": "24 Tháng"
+        "BaoHanh": "24 Tháng",
+        "TagName": "Có màn hình, i5, Máy tính bàn, GTX 1650"
     },
     {
         "MaSP": "SP0039",
@@ -465,6 +503,7 @@
         "MoTa": "CPU Intel Core i7, RAM 32GB, SSD 1TB, VGA NVIDIA RTX 4070 Ti",
         "ImageSP": "/media/image/Product_img/SP0039.webp",
         "MaTK": "000001",
-        "BaoHanh": "12 Tháng"
+        "BaoHanh": "12 Tháng",
+        "TagName": "RTX 3060, GTX 1650, Ryzen 3, i5"
     }
 ]
