@@ -18,13 +18,13 @@
 <body>
     <div class="uf-form-signin">
         <div class="text-center">
-            <a href="https://uifresh.net/"><img src="./public/img/logo-fb.png" alt="" width="100" height="100"></a>
+            <a href="index.php"><img src="./media/image/other/logo-fb.png" alt="" width="100" height="100"></a>
             <h1 class="text-white h3">Account Login</h1>
         </div>
         <form class="mt-4" method="POST" action="controller/c_signIn.php">
             <div class="input-group uf-input-group input-group-lg mb-3">
                 <span class="input-group-text fa fa-envelope"></span>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Email address" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Vui lòng nhập địa chỉ email hợp lệ.">
             </div>
             <div class="input-group uf-input-group input-group-lg mb-3">
                 <span class="input-group-text fa fa-lock"></span>

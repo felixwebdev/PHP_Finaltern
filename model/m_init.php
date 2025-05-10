@@ -23,6 +23,7 @@
                 SoLuong int Not Null,
                 GiaTien float Not Null,
                 MoTa varchar(100) Not Null,
+                BaoHanh varchar(100) Not Null,
                 ImageSP varchar(100) Not Null,
                 Sold int Not Null Default 0,
                 MaTK int(6) Zerofill,
@@ -31,17 +32,18 @@
             $this->setQuery($sql_product);
             $this->excuteQuery();
 
-            $sql_LSMua = "Create Table If Not Exists Cart (
-                MaTK int(6) Zerofill Unsigned Not Null,
+            $sql_Carts = "Create Table If Not Exists Cart (
+                MaTK int(6) Zerofill Not Null,
                 MaSP varchar(6) Not Null,
                 SoLuong int Not Null,
                 GiaTien float Not Null,
                 State varchar(50) Not Null,
+                NgayMua TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                 Primary Key (MaTK, MaSP),
-                Constraint LS_MaTK_FK Foreign Key (MaTK) References Account(MaTK) On Delete cascade,
-                Constraint LS_MaSP_FK Foreign Key (MaSP) References Products(MaSP) On Delete cascade
+                Constraint C_MaTK_FK Foreign Key (MaTK) References Account(MaTK) On Delete cascade,
+                Constraint C_MaSP_FK Foreign Key (MaSP) References Products(MaSP) On Delete cascade
                 )";
-            $this->setQuery($sql_LSMua);
+            $this->setQuery($sql_Carts);
             $this->excuteQuery();
 
             $sql_Voucher = "Create Table If Not Exists Vouchers (
@@ -56,11 +58,28 @@
                         (1 , 'Trương Anh Kiệt', 'anhkiet@gmail.com', '0987654321', 'TP Hồ Chí Minh')";
             $this->setQuery($sql_ad_1);
             $this->excuteQuery();
+
+            // Đọc file products.json
+            $jsonData = file_get_contents('../public/Data/products.json');
+            $products = json_decode($jsonData, true);
             
-            $sql_pro_1 = "INSERT INTO Products (MaSP, TenSP, NSX, PhanLoai, SoLuong, GiaTien, Mota, ImageSP, MaTK) VALUES
-                            ('SP49x1', 'Asus VivoBook 15 Pro', '01/05/2025', 'Laptop', 10, 27950000, 'Ram 16Gb; SSD 256Gb; CPU Ryzen 7; 15.6 in', 'Ảnh Sản Phẩm', '000001')";
-            $this->setQuery($sql_pro_1);
-            $this->excuteQuery();
+            foreach ($products as $product) {
+                $MaSP = $product['MaSP'];
+                $TenSP = addslashes($product['TenSP']);
+                $NSX = $product['NSX'];
+                $PhanLoai = addslashes($product['PhanLoai']);
+                $SoLuong = (int)$product['SoLuong'];
+                $GiaTien = (float)$product['GiaTien'];
+                $MoTa = addslashes($product['MoTa']);
+                $BaoHanh = addslashes($product['BaoHanh']);
+                $ImageSP = addslashes($product['ImageSP']);
+                $MaTK = $product['MaTK'];
+
+                $sql_pro = "INSERT INTO Products (MaSP, TenSP, NSX, PhanLoai, SoLuong, GiaTien, Mota, BaoHanh, ImageSP, MaTK)
+                            VALUES ('$MaSP', '$TenSP', '$NSX', '$PhanLoai', $SoLuong, $GiaTien, '$MoTa', '$BaoHanh', '$ImageSP', '$MaTK')";
+                $this->setQuery($sql_pro);
+                $this->excuteQuery();
+            }
 
             $sql_vou_1 = "INSERT INTO Vouchers (MaV, Discount) VALUES
                             ('VCNamMoi', 50),

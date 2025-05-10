@@ -26,12 +26,14 @@ if ($result && $result->num_rows > 0) {
     $account = $result->fetch_assoc();
 
     // Lưu thông tin vào session
-    $_SESSION['TenTK'] = $account['TenTK'];
-    $_SESSION['LevelID'] = $account['LevelID'];
+
+    $_SESSION['user_id'] = $account["MaTK"];
+    $_SESSION['username'] =  $account['TenTK'];
+    $_SESSION['levelID'] = $account['LevelID'];
 
     // Điều hướng theo quyền
     if ($account['LevelID'] == 1) {
-        header('Location: ../admin/adminPage.php');
+        header('Location: ../analystic_general.php');
     } else {
         header('Location: ../index.php');
     }

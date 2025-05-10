@@ -1,7 +1,18 @@
 <?php include('template/head.php') ?>
 <?php include('template/header.php') ?>
 <div class="main__container">
-    <div class="container__banner"></div>
+    <div class="container__banner">
+        <div class="banner__inner">
+            <div class="banner__title">
+                <h3>PSHOP</h3>
+            </div>
+
+            <div class="banner__description">
+                <p>Đồ điện tử ? Ghé PSHOP</p>
+            </div>
+        </div>
+    </div>
+
     <main>
         <div class="slider" style="
             --width: 100px;
@@ -24,18 +35,14 @@
     </main>
 </div>
 <?php
-    include('model/m_database.php');
     $db = new M_database();
 
-    // Lấy danh sách năm duy nhất từ NSX (DATE) → chỉ lấy phần năm
-    $db->setQuery("SELECT DISTINCT YEAR(NSX) AS YearOnly FROM products ORDER BY YearOnly DESC");
+   $db->setQuery("SELECT DISTINCT RIGHT(NSX, 4) as YearOnly FROM products ORDER BY YearOnly DESC");
     $resYear = $db->excuteQuery();
     $years = [];
     while ($row = $resYear->fetch_assoc()) {
         $years[] = $row['YearOnly'];
     }
-
-    echo $years[0]; // In ra năm đầu tiên trong danh sách
 
     // Lấy danh sách phân loại
     $db->setQuery("SELECT DISTINCT PhanLoai FROM products");
@@ -55,7 +62,7 @@
 
     // Lọc theo năm sản xuất
     if ($filterYear !== '') {
-        $sql .= " AND YEAR(NSX) = " . (int)$filterYear;
+        $sql .= " AND RIGHT(NSX, 4) = " . (int)$filterYear;
     }
 
     // Lọc theo phân loại
@@ -139,9 +146,7 @@
                             <h5 class="card-title"><?= $product['TenSP'] ?></h5>
                             <p class="card-text text-danger fw-bold"><?= number_format($product['GiaTien'],0,',','.') ?>đ</p>
                             <p class="card-text small text-muted mb-1">
-                                <?= $product['PhanLoai'] ?> • <?= $product['NSX'] ?>
                             </p>
-                            <p class="card-text small"><?= $product['MoTa'] ?></p>
                             <a href="product_detail.php?id=<?= $product['MaSP'] ?>" class="btn btn-primary mt-auto">Xem chi tiết</a>
                         </div>
                     </div>

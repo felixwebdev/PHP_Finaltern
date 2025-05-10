@@ -1,5 +1,3 @@
-<?php include('template/head.php') ?>
-<?php include('template/header.php') ?>
 <?php include "template/sidebar.php" ?>
 <div class="bg-light flex-fill">
     <style>
@@ -173,4 +171,3 @@
 </script>
 </body>
 </html>
-<?php include "template/script_footer.php" ?>
